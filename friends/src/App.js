@@ -4,17 +4,12 @@ import { Route, Redirect } from 'react-router-dom'
 import './App.css';
 
 import Form from './components/Form'
+import Friends from './components/Friends'
 
 function App() {
   const token = localStorage.getItem('token')
   return (
     <div className="App">
-      {/* 
-        1 - Login
-        2 - Rendered friends
-
-        Strat - check if authToken exists, render a <Redirect /> on that basis
-      */}
       {
         token ?
         <Redirect to="/friends" />
@@ -22,6 +17,13 @@ function App() {
       }
       <Route path="/login" component={Form} />
       {/* create a protected route to friends */}
+      <Route path="/friends" render={props => (
+        
+          token ?
+          <Friends />
+          : <Redirect to="/login" />
+        
+      )} />
     </div>
   );
 }
