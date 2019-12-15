@@ -4,6 +4,8 @@ import { useHistory } from 'react-router-dom'
 // Redux
 import { connect } from 'react-redux'
 import { makeFrens } from '../redux/actions'
+// Components
+import FriendForm from './FriendForm'
 
 function Friends(props) {
   const { friendsList, makeFrens } = props
@@ -18,6 +20,7 @@ function Friends(props) {
 
   return (
     <div className="friends__cont">
+      <FriendForm />
 
       <div className="friends__jumbotron">
         <h1>Check out some of dese friends</h1>

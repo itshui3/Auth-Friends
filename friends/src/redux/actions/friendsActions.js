@@ -16,6 +16,10 @@ export const MAKING_FRENS = 'MAKING_FRENS'
 export const MADE_FRENS = 'MADE_FRENS'
 export const THEY_HATE_ME = 'THEY_HATE_ME'
 
+export const MAKING_NEW_FREN = 'MAKING_NEW_FREN'
+export const COULDNT_MAKE_FREN = 'COULDNT_MAKE_FREN'
+export const MADE_FREN = 'MADE_FREN'
+
 export const makeFrens = () => dispatch => {
   dispatch({ type: MAKING_FRENS })
 
@@ -28,5 +32,19 @@ export const makeFrens = () => dispatch => {
     .catch( err => {
       console.log(err)
       dispatch({ type: THEY_HATE_ME, payload: 'yeah' })
+    })
+}
+
+export const makeNewFren = (fren) => dispatch => {
+  dispatch({ type: MAKING_NEW_FREN })
+
+  friendlyAxios().post('http://localhost:5000/api/friends', fren)
+    .then( res => {
+      console.log(res)
+      dispatch({ type: MADE_FREN, payload: res.data })
+    })
+    .catch( err => {
+      console.log(err)
+      dispatch({ type: COULDNT_MAKE_FREN, payload: err })
     })
 }

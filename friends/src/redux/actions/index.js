@@ -16,8 +16,12 @@ import {
   MAKING_FRENS,
   THEY_HATE_ME,
   MADE_FRENS,
+  MAKING_NEW_FREN,
+  COULDNT_MAKE_FREN,
+  MADE_FREN,
   // actions
-  makeFrens
+  makeFrens,
+  makeNewFren
 } from './friendsActions'
 
 export {
@@ -37,6 +41,10 @@ export {
     MAKING_FRENS,
     THEY_HATE_ME,
     MADE_FRENS,
+    MAKING_NEW_FREN,
+    COULDNT_MAKE_FREN,
+    MADE_FREN,
     // actions
-    makeFrens
+    makeFrens,
+    makeNewFren
 }
