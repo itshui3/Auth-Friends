@@ -7,6 +7,8 @@ import { makeFrens } from '../redux/actions'
 // Components
 import FriendForm from './FriendForm'
 
+import './Friends.scss'
+
 function Friends(props) {
   const { friendsList, makeFrens } = props
 

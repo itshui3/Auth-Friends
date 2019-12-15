@@ -3,11 +3,13 @@ import {
   LOGGING_IN,
   LOGGED_IN,
   ERROR_LOGGING_IN,
+  LOG_OUT,
   // actions
   sendError,
   setLogged,
   setLogging,
-  login
+  login,
+  logout
 } from './loginActions'
 
 import {
@@ -30,11 +32,13 @@ export {
     LOGGING_IN,
     LOGGED_IN,
     ERROR_LOGGING_IN,
+    LOG_OUT,
     // actions
     setLogged,
     sendError,
     setLogging,
     login,
+    logout,
   // friends
     // constants
     MAKE_FRENS,

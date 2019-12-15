@@ -1,7 +1,8 @@
 import {
   LOGGING_IN,
   LOGGED_IN,
-  ERROR_LOGGING_IN
+  ERROR_LOGGING_IN,
+  LOG_OUT
 } from '../actions'
 
 const initialState = {
@@ -18,6 +19,12 @@ export const loginReducer = (state = initialState, { type, payload }) => {
         ...state,
         isLogging: true,
         isError: false
+      }
+
+    case LOG_OUT:
+      return {
+        ...state,
+        isLogged: false
       }
 
     case LOGGED_IN:

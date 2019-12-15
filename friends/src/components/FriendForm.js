@@ -1,7 +1,6 @@
 // make a form inside a modal, and a visible button that sets it to display
 import React, { useState } from 'react'
 // Redux
-import { useDispatch } from 'react-redux'
 import { connect } from 'react-redux'
 import { makeNewFren } from '../redux/actions'
 
@@ -15,8 +14,6 @@ function FriendForm(props) {
     email: ''
   })
 
-  const dispatch = useDispatch()
-
   const handleInput = ev => {
     setFriend({
       ...friend,
@@ -27,6 +24,12 @@ function FriendForm(props) {
   const handleSubmit = ev => {
     ev.preventDefault()
     props.makeNewFren(friend)
+    setModal(false)
+    setFriend({
+      name: '',
+      age: '',
+      email: ''
+    })
   }
 
   return (
