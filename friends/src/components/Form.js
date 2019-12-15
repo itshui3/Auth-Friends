@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
-import Axios from 'axios'
 
 //Redux
 import { connect } from 'react-redux'
@@ -19,11 +18,13 @@ function Form(props) {
     password: ''
   })
 
+  const { login, isLogged, isLogging } = props
+
   const handleInput = ev => {
     setCredentials({ ...credentials, [ev.target.name]: ev.target.value })
   }
 
-  const { login, isLogged } = props
+  
   const handleSubmit = ev => {
     ev.preventDefault()
     login(credentials)
@@ -33,8 +34,6 @@ function Form(props) {
     if(isLogged) {
       history.push('/friends')
     }
-
-
   }, [isLogged])
 
   return (
@@ -55,6 +54,10 @@ function Form(props) {
           value={credentials.password}
         />
         <button type="submit">Login</button>
+        {
+          isLogging && <img src='https://upload.wikimedia.org/wikipedia/commons/e/e1/Le_lenny_face.jpg' />
+        }
+        
       </form>
     </div>
   )
