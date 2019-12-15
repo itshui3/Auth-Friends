@@ -4,7 +4,8 @@ import {
   ERROR_LOGGING_IN,
   sendError,
   setLogged,
-  setLogging
+  setLogging,
+  login
 } from './loginActions'
 
 export {
@@ -13,5 +14,6 @@ export {
   ERROR_LOGGING_IN,
   setLogged,
   sendError,
-  setLogging
+  setLogging,
+  login
 }
