@@ -5,7 +5,9 @@ import {
 
   MAKING_NEW_FREN,
   COULDNT_MAKE_FREN,
-  MADE_FREN
+  MADE_FREN,
+  REMOVING_FREN,
+  REMOVED_FREN
 } from '../actions'
 
 const initialState = {
@@ -15,7 +17,9 @@ const initialState = {
   doTheyHateMe: 'maybe',
   // post
   isMakingNewFren: false,
-  couldntMakeNewFren: 'maybe'
+  couldntMakeNewFren: 'maybe',
+  // delete
+  isRemovingFren: false
 }
 
 export const friendsReducer = (state = initialState, { type, payload }) => {
@@ -59,6 +63,19 @@ export const friendsReducer = (state = initialState, { type, payload }) => {
         ...state,
         isMakingNewFren: false,
         couldntMakeNewFren: payload
+      }
+
+    case REMOVING_FREN:
+      return {
+        ...state,
+        isRemovingFren: true
+      }
+    
+    case REMOVED_FREN:
+      return {
+        ...state,
+        friendships: payload,
+        isRemovingFren: false
       }
 
 

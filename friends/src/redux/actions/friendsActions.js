@@ -20,6 +20,9 @@ export const MAKING_NEW_FREN = 'MAKING_NEW_FREN'
 export const COULDNT_MAKE_FREN = 'COULDNT_MAKE_FREN'
 export const MADE_FREN = 'MADE_FREN'
 
+export const REMOVING_FREN = 'REMOVING_FREN'
+export const REMOVED_FREN = 'REMOVED_FREN'
+
 export const makeFrens = () => dispatch => {
   dispatch({ type: MAKING_FRENS })
 
@@ -46,5 +49,18 @@ export const makeNewFren = (fren) => dispatch => {
     .catch( err => {
       console.log(err)
       dispatch({ type: COULDNT_MAKE_FREN, payload: err })
+    })
+}
+
+export const removeFren = (id) => dispatch => {
+  dispatch({ type: REMOVING_FREN })
+
+  friendlyAxios().delete(`http://localhost:5000/api/friends/${id}`)
+    .then( res => {
+      console.log(res)
+      dispatch({ type: REMOVED_FREN, payload: res.data })
+    })
+    .catch( err => {
+      console.log(err)
     })
 }

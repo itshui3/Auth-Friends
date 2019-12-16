@@ -34,7 +34,7 @@ function FriendForm(props) {
 
   return (
     <>
-    <button onClick={() => setModal(!modal)}></button>
+    <button onClick={() => setModal(!modal)}>Make A New Pal!</button>
       <div 
         className={`friendForm__modalBackground ${
           modal ?

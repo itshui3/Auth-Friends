@@ -3,7 +3,7 @@ import React, { useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
 // Redux
 import { connect } from 'react-redux'
-import { makeFrens } from '../redux/actions'
+import { makeFrens, removeFren } from '../redux/actions'
 // Components
 import FriendForm from './FriendForm'
 
@@ -14,11 +14,14 @@ function Friends(props) {
 
   const history = useHistory()
   useEffect(() => {
-
     if(history.location.pathname === '/friends') {
       makeFrens()
     }
   }, [history.location.pathname])
+
+  const handleRemoval = ev => {
+    props.removeFren(ev.target.id)
+  }
 
   return (
     <div className="friends__cont">
@@ -33,6 +36,10 @@ function Friends(props) {
                 <li>{friend.name}</li>
                 <li>{friend.age}</li>
                 <li>{friend.email}</li>
+                <li 
+                  id={friend.id}
+                  onClick={handleRemoval}
+                >Remove Friend</li>
               </ul>
             ))
           }
@@ -50,5 +57,6 @@ const mapStateToProps = ({ friends }) => {
 }
 
 export default connect(mapStateToProps, {
-  makeFrens
+  makeFrens,
+  removeFren
 })(Friends)

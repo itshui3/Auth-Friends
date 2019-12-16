@@ -21,9 +21,12 @@ import {
   MAKING_NEW_FREN,
   COULDNT_MAKE_FREN,
   MADE_FREN,
+  REMOVING_FREN,
+  REMOVED_FREN,
   // actions
   makeFrens,
-  makeNewFren
+  makeNewFren,
+  removeFren
 } from './friendsActions'
 
 export {
@@ -48,7 +51,10 @@ export {
     MAKING_NEW_FREN,
     COULDNT_MAKE_FREN,
     MADE_FREN,
+    REMOVING_FREN,
+    REMOVED_FREN,
     // actions
     makeFrens,
-    makeNewFren
+    makeNewFren,
+    removeFren
 }
