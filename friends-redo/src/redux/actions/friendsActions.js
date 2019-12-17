@@ -10,7 +10,7 @@ export const fetchFriends = () => dispatch => {
   axiosWithAuth().get('/friends')
     .then( res => {
       console.log(res)
-      dispatch({ type: FETCHED_FRIENDS })
+      dispatch({ type: FETCHED_FRIENDS, payload: res.data })
 
     })
     .catch( err => {

@@ -18,6 +18,8 @@ function Friends(props) {
     
   }, [])
 
+  console.log(props.friends)
+
   return (
     <div className="friends__cont">
       {
