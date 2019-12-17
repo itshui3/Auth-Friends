@@ -3,33 +3,37 @@ import { useHistory } from 'react-router-dom'
 // Redux
 import { connect } from 'react-redux'
 import { fetchFriends } from '../redux/actions'
+// Components
+import FriendForm from './FriendForm'
 
+// name, age, email
 function Friends(props) {
   const history = useHistory()
 
   useEffect(() => {
-    // if(!props.loggedIn) {
-    //   history.push('/login')
-    // } 
-
+    if(!localStorage.getItem('token')) {
+      history.push('/login')
+    }
     props.fetchFriends()
-
-
-    
   }, [])
-
-  console.log(props.friends)
 
   return (
     <div className="friends__cont">
+      <div className="friends__list">
       {
         props.friends &&
           props.friends.map((friend, index) => (
-            <div className="friends__card">
-              {friend.name}
+            <div key={index} className="friends__card">
+              <div>{friend.name}</div>
             </div>
           ))
+
+
       }
+      </div>
+      <div className="friends__addFriendForm">
+        <FriendForm />
+      </div>
     </div>
   )
 }

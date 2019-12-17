@@ -12,8 +12,14 @@ import {
   FETCHING_FRIENDS,
   FETCHED_FRIENDS,
   FAILED_FRIENDS_FETCH,
+
+  POSTING_FRIEND,
+  POSTED_FRIEND,
+  FAILED_POST_FRIEND,
   //friendsActions: actions
-  fetchFriends
+  fetchFriends,
+
+  postFriend
 } from './friendsActions'
 
 export {
@@ -27,6 +33,12 @@ export {
   FETCHING_FRIENDS,
   FETCHED_FRIENDS,
   FAILED_FRIENDS_FETCH,
+
+  POSTING_FRIEND,
+  POSTED_FRIEND,
+  FAILED_POST_FRIEND,
   //friendsActions: actions
-  fetchFriends
+  fetchFriends,
+
+  postFriend
 }
