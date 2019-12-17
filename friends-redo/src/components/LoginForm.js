@@ -1,5 +1,7 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
+
+import { login } from '../redux/actions/'
 
 function LoginForm(props) {
   const [login, setLogin] = useState({
@@ -9,7 +11,18 @@ function LoginForm(props) {
 
   const handleSubmitLogin = ev => {
     ev.preventDefault()
+    props.login(login)
+
+    setLogin({
+      username: '',
+      password: ''
+    })
   }
+
+  // useEffect(() => {
+  //   props.history.push('/friends')
+
+  // }, [props.isLoggedIn])
 
   const handleInput = ev => {
     setLogin({ ...login, [ev.target.name]: ev.target.value })
@@ -39,7 +52,11 @@ function LoginForm(props) {
 }
 
 const mapStateToProps = state => {
-  return {}
+  return {
+    isLoggedIn: state.loginReducer.loggedIn
+  }
 }
 
-export default connect(mapStateToProps)(LoginForm)
+export default connect(mapStateToProps, {
+  login
+})(LoginForm)

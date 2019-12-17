@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import { BrowserRouter as Router } from 'react-router-dom'
 
 // Redux
 import { createStore, compose, applyMiddleware } from 'redux'
@@ -16,7 +17,9 @@ const store = createStore(reducer, composeEnhancers(applyMiddleware(thunk)))
 
 ReactDOM.render(
 <Provider store={store}>
-<App />
+  <Router>
+    <App />
+  </Router>
 </Provider>
 , document.getElementById('root'));
 

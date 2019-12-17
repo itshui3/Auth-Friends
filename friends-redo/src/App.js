@@ -1,26 +1,36 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useEffect } from 'react';
+import { Route, Switch, useHistory } from 'react-router-dom'
 import './App.css';
+// Redux
+import { connect } from 'react-redux'
 
-function App() {
+import LoginForm from './components/LoginForm'
+
+function App(props) {
+  const history = useHistory()
+
+  useEffect(() => {
+    if(!props.isLoggedIn) {
+      history.push('/login')
+    } 
+  }, [props.isLoggedIn])
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Welcome to Auth-Friends</h1>
+
+      <Switch>
+        <Route path="/login" component={LoginForm} />
+        <Route path="/friends" />
+      </Switch>
     </div>
   );
 }
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    isLoggedIn: state.loginReducer.loggedIn
+  }
+
+}
+
+export default connect(mapStateToProps)(App);
