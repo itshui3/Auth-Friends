@@ -19,10 +19,13 @@ function LoginForm(props) {
     })
   }
 
-  useEffect(() => {
-    props.history.push('/friends')
+  // useEffect(() => {
+  //   if(props.isLoggedIn) {
+  //     props.history.push('/friends')
+  //   }
 
-  }, [props.isLoggedIn])
+
+  // }, [props.isLoggedIn])
   console.log(props.isLoggedIn)
 
   const handleInput = ev => {

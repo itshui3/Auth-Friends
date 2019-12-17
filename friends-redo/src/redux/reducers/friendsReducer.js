@@ -1,3 +1,9 @@
+import {
+  FETCHING_FRIENDS,
+  FETCHED_FRIENDS,
+  FAILED_FRIENDS_FETCH
+} from '../actions'
+
 const initialState = {
   friends: []
 }

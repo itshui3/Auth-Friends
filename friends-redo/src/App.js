@@ -5,22 +5,23 @@ import './App.css';
 import { connect } from 'react-redux'
 
 import LoginForm from './components/LoginForm'
+import Friends from './components/Friends'
 
 function App(props) {
   const history = useHistory()
 
-  useEffect(() => {
-    if(!props.isLoggedIn) {
-      history.push('/login')
-    } 
-  }, [props.isLoggedIn])
+  // useEffect(() => {
+  //   if(!props.isLoggedIn) {
+  //     history.push('/login')
+  //   } 
+  // }, [props.isLoggedIn])
   return (
     <div className="App">
       <h1>Welcome to Auth-Friends</h1>
 
       <Switch>
         <Route path="/login" component={LoginForm} />
-        <Route path="/friends" />
+        <Route path="/friends" component={Friends} />
       </Switch>
     </div>
   );
