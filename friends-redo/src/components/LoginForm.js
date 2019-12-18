@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { useHistory } from 'react-router-dom'
 import { connect } from 'react-redux'
 
 import { login } from '../redux/actions/'
@@ -9,6 +10,8 @@ function LoginForm(props) {
     password: ''
   })
 
+  const history = useHistory()
+
   const handleSubmitLogin = ev => {
     ev.preventDefault()
     props.login(login)
@@ -17,16 +20,9 @@ function LoginForm(props) {
       username: '',
       password: ''
     })
+
+    history.push('/friends')
   }
-
-  // useEffect(() => {
-  //   if(props.isLoggedIn) {
-  //     props.history.push('/friends')
-  //   }
-
-
-  // }, [props.isLoggedIn])
-  console.log(props.isLoggedIn)
 
   const handleInput = ev => {
     setLogin({ ...login, [ev.target.name]: ev.target.value })

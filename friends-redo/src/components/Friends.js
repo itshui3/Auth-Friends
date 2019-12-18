@@ -11,9 +11,9 @@ function Friends(props) {
   const history = useHistory()
 
   useEffect(() => {
-    if(!localStorage.getItem('token')) {
-      history.push('/login')
-    }
+    // if(!localStorage.getItem('token')) {
+    //   history.push('/login')
+    // }
     props.fetchFriends()
   }, [])
 
